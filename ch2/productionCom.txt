@@ -1,0 +1,18 @@
+  for production--------------------------------------
+  //production as well As develeopment
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build":"babel index.js --out-dir prd", // gives production directory
+    "start": "npm run build && nodemon prd/index.js",// befpre deploy test on local
+    "serve": "node prd/index.js"// help to start  server at production , becz  nodemon will not work at  oroduction
+  },
+
+  for development-----------------------------------------
+  //only development
+
+    "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"babel index.js  -w --out-dir prd",
+    "dev": "nodemon prd/index.js",
+
+  },
