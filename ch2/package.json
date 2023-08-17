@@ -6,7 +6,7 @@
 
   "scripts": {
 
-    "start":"babel index.js -w --out-dir prd",
+    "start":"babel src -w --out-dir prd",
     "dev": "nodemon prd/index.js"
   },
   "keywords": [],
