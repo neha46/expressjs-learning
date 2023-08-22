@@ -1,6 +1,7 @@
 // rounting--- line 81 and 66
 
 import express from 'express';
+import {join} from 'path'
 import stu from './routes/student.js';//import router module
 import tea from './routes/teacher.js'
 import home from './routes/Home.js'
@@ -154,7 +155,33 @@ const port= process.env.PORT||4000;
 // });
 
 // router----------------------------------------------------------------------
-// all student routes-----------
+// all student routes---------
+
+//static file -----
+// app.use(express.static(join(process.cwd(),'public')))
+// app.use('/static',express.static(join(process.cwd(),'public')))// static for virtual
+
+
+const Options={
+  dotfiles:"deny",
+  etag:false,
+  extentions:['htm','html'],
+  index:false,
+  maxAge:'1d',
+  redirect:false,
+  setHeaders: function(res,path,stat){
+    res.set('x-timestamp',Date.now())
+  }
+
+  
+}
+app.use(express.static(join(process.cwd(),'public'),Options))
+
+
+// VIRTUAL FOR ONE
+// app.use('/css',express.static(join(process.cwd(),'public/css')))// static for virtual
+// app.use('/js',express.static(join(process.cwd(),'public/js')))
+// app.use('/images',express.static(join(process.cwd(),'public/images')))
 // load the router modules
 app.use('/student',stu)//load router module
 app.use('/teacher',tea)
