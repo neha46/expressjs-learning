@@ -1,7 +1,9 @@
 // rounting--- line 81 and 66
 
 import express from 'express';
-import stu from './routes/student.js';
+import stu from './routes/student.js';//import router module
+import tea from './routes/teacher.js'
+import home from './routes/Home.js'
 
 const app=express();
 const port= process.env.PORT||4000;
@@ -47,7 +49,7 @@ const port= process.env.PORT||4000;
 //     res.send('<h1> Combination of independent function and arrays of functions </h1>')
 //   })
 
-  
+
   //an array of call back  functions-------------------------------------------------------
 //   const ch1=(req,res,next)=>{
 //       console.log('first call')
@@ -154,12 +156,10 @@ const port= process.env.PORT||4000;
 // router----------------------------------------------------------------------
 // all student routes-----------
 // load the router modules
-app.use('/student',stu)
+app.use('/student',stu)//load router module
+app.use('/teacher',tea)
+app.use('/',home)
 app.listen(port, () => {
     console.log('Server started');
     console.log(`Server is running on http://localhost:${port}`);
 });
-
-
-
-
