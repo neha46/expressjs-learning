@@ -7,7 +7,7 @@ import tea from './routes/teacher.js'
 import home from './routes/Home.js'
 
 const app=express();
-const port= process.env.PORT||4000;
+const port= process.env.PORT||5000;
 
 
 
